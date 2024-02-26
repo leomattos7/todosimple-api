@@ -35,8 +35,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Task> tasks = new ArrayList<>();
 
-    public User() {
-    }
+    public User() { }
 
     public User(String userName, String password, Long id) {
         this.userName = userName;
