@@ -15,9 +15,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private TaskRepository taskRepository;
-
     public User findByID(Long id) {
         Optional<User> user = this.userRepository.findById(id);
         return user.orElseThrow(() -> new RuntimeException(
@@ -28,7 +25,6 @@ public class UserService {
     @Transactional
     public User user(User obj) {
         obj.setId(null);
-        this.taskRepository.saveAll(obj.getTasks());
         return this.userRepository.save(obj);
     }
 
