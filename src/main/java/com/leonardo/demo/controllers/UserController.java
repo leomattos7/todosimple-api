@@ -12,14 +12,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 @Validated
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("id/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<User> findById(@PathVariable Long id) {
         User obj = this.userService.findById(id);
         return ResponseEntity.ok().body(obj);
