@@ -23,7 +23,7 @@ public class UserService {
     }
 
     @Transactional
-    public User user(User obj) {
+    public User create(User obj) {
         obj.setId(null);
         return this.userRepository.save(obj);
     }
